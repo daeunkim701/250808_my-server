@@ -18,9 +18,26 @@
         body {
             font-family: 'Paperlogy-8ExtraBold';
             background: linear-gradient(135deg, #d0e8ff, #f6f7ff);
+            padding: 0;
+            margin: 0;
+        }
+        /* 타이틀 영역 */
+        .title-bar {
+            background: linear-gradient(90deg, #3a8df5, #6ec6ff);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 0 0 16px 16px;
+        }
+        /* 메인 카드 */
+        .chat-container {
+            background: linear-gradient(135deg, #d0e8ff, #f6f7ff);
             padding: 20px;
             max-width: 600px;
-            margin: 50px auto;
+            margin: 30px auto;
             font-size: 1.2rem;
             border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
@@ -71,15 +88,20 @@
     </style>
 </head>
 <body>
-<p>
-    질문 : <%= request.getAttribute("question") %>
-</p>
-<p>
-    답변 : <%= request.getAttribute("data") %>
-</p>
-<form method="post">
-    <input name="question" placeholder="무엇이든 물어보세요...">
-    <button>질문하기</button>
-</form>
+    <div class="title-bar">
+        싸가지 없는 AI와 대화하기
+    </div>
+    <div class="chat-container">
+        <p>
+            질문 : <%= request.getAttribute("question") %>
+        </p>
+        <p>
+            답변 : <%= request.getAttribute("data") %>
+        </p>
+        <form method="post">
+            <input name="question" placeholder="무엇이든 물어보세요...">
+            <button>질문하기</button>
+        </form>
+    </div>
 </body>
 </html>

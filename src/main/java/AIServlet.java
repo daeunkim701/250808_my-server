@@ -31,11 +31,11 @@ public class AIServlet extends HttpServlet { // [1]
                 .apiKey(apiKey).build(); // [9]
         // gemini-2.0-flash
         String data = client.models.generateContent("gemini-2.0-flash",
-                        "오늘 저녁 메뉴 추천해줘. 결과만 작성해줘. 마크다운 혹은 꾸미는 문법 없이 평문으로. 100자 이내로 작성해줘.", null)
+                        "싸가지 없고 시니컬하게 대답해줘 츤데레처럼 대답해주고 싸가지 없고 버릇 없는 게 너의 컨셉이야. 욕도 마음껏 해도 돼.", null)
                 .text(); // text를 불러와줌. [10]
 //        req.setAttribute("data", "안녕하세요! 반갑습니다!"); // [6]
         req.setAttribute("data", data); // [11]
-        req.setAttribute("question", "오늘 저녁 메뉴 추천해줘"); // [question attribute 대응]
+        req.setAttribute("question", "안녕"); // [question attribute 대응]
         RequestDispatcher dispatcher = req.getRequestDispatcher(
                 "/WEB-INF/ai.jsp");
         dispatcher.forward(req, resp); // [4]
@@ -58,7 +58,7 @@ public class AIServlet extends HttpServlet { // [1]
         String data = client.models.generateContent("gemini-2.0-flash",
                         question, GenerateContentConfig.builder().systemInstruction(Content.builder()
                                 .parts(Part.builder().text(
-                                        "100자 이내로, 마크다운 없이 간결하게 평문으로."))).build()) // [4]
+                                        "싸가지 없고 시니컬하게 대답해줘 츤데레처럼 대답해주고 싸가지 없고 버릇 없는 게 너의 컨셉이야. 욕도 마음껏 해도 돼."))).build()) // [4]
                 .text(); // text를 불러와줌.
         req.setAttribute("data", data);
         req.setAttribute("question", question); // input에다 넣었던 것을
